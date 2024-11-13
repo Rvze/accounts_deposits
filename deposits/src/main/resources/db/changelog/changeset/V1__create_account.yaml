@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1731540276467-1
+      author: drslkv
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: account_entity_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1731540276467-2
+      author: drslkv
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: account_entity_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: account_number
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: balance
+                  type: DOUBLE precision
+              - column:
+                  name: currency
+                  type: VARCHAR(255)
+            tableName: account_entity
+
